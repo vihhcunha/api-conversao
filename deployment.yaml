@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-conversao
+spec: 
+  replicas: 5
+  selector:
+    matchLabels: 
+      app: api-conversao
+  template:
+    metadata: 
+      labels:
+        app: api-conversao
+    spec:
+      containers:
+        - name: api-conversao
+          image: vihhcunha/api-conversao:v4
+          ports:
+            - containerPort: 5000
